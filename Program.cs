@@ -4,63 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project._._1
+namespace project._._2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int n1, n2;
-            String flag = "prime";
+            int n1, n2, z = 0;
             Console.WriteLine("enter n1");
             n1 = int.Parse(Console.ReadLine());
             Console.WriteLine("enter n2");
             n2 = int.Parse(Console.ReadLine());
-            if (n1 >= 2)
+            for (int i = n1; i <= n2; i++)
             {
-                for (int i = n1; i <= n2; i++)
+                for (int x = 1; x < i; x++)
                 {
-                    for (int x = 2; x < i; x++)
+                    if (i % x == 0)
                     {
-                        if (i % x != 0)
-                        {
-                            flag = "prime";
-                        }
-                        else
-                        {
-                            flag = "not prime";
-                            break;
-                        }
-                    }
-
-                    if (flag == "prime")
-                    {
-                        Console.WriteLine(i);
+                        z += x;
                     }
                 }
-            }
-            else
-            {
-                for (int i = 2; i <= n2; i++)
+                if (z == i)
                 {
-                    for (int x = 2; x < i; x++)
-                    {
-                        if (i % x != 0)
-                        {
-                            flag = "prime";
-                        }
-                        else
-                        {
-                            flag = "not prime";
-                            break;
-                        }
-                    }
-
-                    if (flag == "prime")
-                    {
-                        Console.WriteLine(i);
-                    }
+                    Console.WriteLine(i);
                 }
+                z = 0;
             }
         }
     }
